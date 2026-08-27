@@ -186,6 +186,12 @@
       object-position: center 20%;
     }
 
+    /* Gradient fallback hero when no lookbook images exist */
+    .hero-gradient {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #1A1A1A 0%, #997B5F 50%, #EDEAE6 100%);
+    }
+
     .hero-veil {
       position: absolute;
       inset: 0;
@@ -268,9 +274,10 @@
       border-top: 1px solid var(--light-grey);
     }
 
+    /* FIX 4: Changed from 4 cols to 3 cols for balanced rows */
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 36px;
     }
 
@@ -491,6 +498,12 @@
       aspect-ratio: 1;
       overflow: hidden;
       background: var(--dark-grey);
+    }
+
+    .follow-tile a {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
 
     .follow-tile img {
@@ -719,7 +732,7 @@
     <!-- RIGHT: search & socials -->
     <div class="nav-social">
       <div class="nav-search">
-        <input type="text" id="searchInput" placeholder="Search..." onkeyup="filterLookbooks()" aria-label="Search">
+        <input type="text" id="searchInput" placeholder="Search..." onkeyup="handleSearch(event)" aria-label="Search">
       </div>
       <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -738,12 +751,14 @@
   </div>
 </header>
 
-<!-- ═══ HERO ═══════════════════════════════════════════════════════════ -->
+<!-- ═══ HERO — FIX 1: Dynamic lookbook image instead of Unsplash stock ═══ -->
 <section class="hero">
+  
   <img
-    src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1440&h=900&fit=crop&auto=format&q=80"
-    alt="SmartPickr Fashion & Lifestyle"
+    src="https://pinterest-lookbooks-beta.vercel.app/floral-patterned-dress-aeedb449-og.webp"
+    alt="SmartPickr — Floral Romance in Every Stitch: My Favorite Floral Patterned Dress"
   />
+  
   <div class="hero-veil">
     <p class="hero-eye">Welcome to</p>
     <h1 class="hero-title">SmartPickr</h1>
@@ -765,7 +780,7 @@
       <article class="blog-card" onclick="window.location.href='floral-patterned-dress-aeedb449.html'" data-title="floral romance in every stitch: my favorite floral patterned dress | smartpickr review floral romance in every stitch: my favorite floral patterned dress discover the ultimate flowy, feminine dress with a touch of whimsy and a dash of elegance">
         <div class="card-thumb">
           
-          <img src="floral-patterned-dress-aeedb449-og.webp" alt="Floral Romance in Every Stitch: My Favorite Floral Patterned Dress | SmartPickr Review" loading="lazy" />
+          <img src="https://pinterest-lookbooks-beta.vercel.app/floral-patterned-dress-aeedb449-og.webp" alt="Floral Romance in Every Stitch: My Favorite Floral Patterned Dress | SmartPickr Review" loading="lazy" />
           
         </div>
         <p class="card-cat">Curator&#39;s Pick</p>
@@ -781,7 +796,7 @@
       <article class="blog-card" onclick="window.location.href='oversized-black-leather-utility-jacket-6511d2af.html'" data-title="found: the perfect oversized black leather utility jacket | hands-on discovery &amp; review found: the perfect oversized black leather utility jacket butter-soft leather, functional snap utility pockets, and that effortless oversized drape you have been searching for.">
         <div class="card-thumb">
           
-          <img src="oversized-black-leather-utility-jacket-6511d2af-og.webp" alt="Found: The Perfect Oversized Black Leather Utility Jacket | Hands-On Discovery &amp; Review" loading="lazy" />
+          <img src="https://pinterest-lookbooks-beta.vercel.app/oversized-black-leather-utility-jacket-6511d2af-og.webp" alt="Found: The Perfect Oversized Black Leather Utility Jacket | Hands-On Discovery &amp; Review" loading="lazy" />
           
         </div>
         <p class="card-cat">Curator&#39;s Pick</p>
@@ -797,7 +812,7 @@
       <article class="blog-card" onclick="window.location.href='halloween-ghost-decor-14e593ff.html'" data-title="why everyone is talking about the halloween ghost decor | hands-on kitchen &amp; home evaluation why everyone is talking about the halloween ghost decor an unfiltered look at the viral halloween ghost decor by curated pick — honest breakdown, tactile notes, and buyer guide.">
         <div class="card-thumb">
           
-          <img src="halloween-ghost-decor-14e593ff-og.webp" alt="Why Everyone Is Talking About The Halloween Ghost Decor | Hands-On Kitchen &amp; Home Evaluation" loading="lazy" />
+          <img src="https://pinterest-lookbooks-beta.vercel.app/halloween-ghost-decor-14e593ff-og.webp" alt="Why Everyone Is Talking About The Halloween Ghost Decor | Hands-On Kitchen &amp; Home Evaluation" loading="lazy" />
           
         </div>
         <p class="card-cat">Curator&#39;s Pick</p>
@@ -813,7 +828,7 @@
       <article class="blog-card" onclick="window.location.href='reference-product-6887ec60.html'" data-title="unveiling the mystique of reference product: a hauntingly beautiful addition to your living room | hands-on discovery &amp; review unveiling the mystique of reference product: a hauntingly beautiful addition to your living room discover the enchanting blend of ghostly eyes and pumpkin stem details that will leave you spellbound, and find out why this unique piece is a must-have for any interior design enthusiast">
         <div class="card-thumb">
           
-          <img src="reference-product-6887ec60-og.webp" alt="Unveiling the Mystique of Reference Product: A Hauntingly Beautiful Addition to Your Living Room | Hands-On Discovery &amp; Review" loading="lazy" />
+          <img src="https://pinterest-lookbooks-beta.vercel.app/reference-product-6887ec60-og.webp" alt="Unveiling the Mystique of Reference Product: A Hauntingly Beautiful Addition to Your Living Room | Hands-On Discovery &amp; Review" loading="lazy" />
           
         </div>
         <p class="card-cat">Curator&#39;s Pick</p>
@@ -829,7 +844,7 @@
       <article class="blog-card" onclick="window.location.href='reference-product-f4fb0473.html'" data-title="cozy nights begin here: a timeless candle set for the living room | hands-on kitchen &amp; home evaluation cozy nights begin here: a timeless candle set for the living room elevate your home&#39;s ambiance with our handcrafted candle set, featuring a soothing blend of scents and textures that will transport you to a state of serenity.">
         <div class="card-thumb">
           
-          <img src="reference-product-f4fb0473-og.webp" alt="Cozy Nights Begin Here: A Timeless Candle Set for the Living Room | Hands-On Kitchen &amp; Home Evaluation" loading="lazy" />
+          <img src="https://pinterest-lookbooks-beta.vercel.app/reference-product-f4fb0473-og.webp" alt="Cozy Nights Begin Here: A Timeless Candle Set for the Living Room | Hands-On Kitchen &amp; Home Evaluation" loading="lazy" />
           
         </div>
         <p class="card-cat">Curator&#39;s Pick</p>
@@ -846,12 +861,14 @@
   </div>
 </section>
 
-<!-- ═══ ABOUT SECTION ═══════════════════════════════════════════════════ -->
+<!-- ═══ ABOUT SECTION — FIX 2: Dynamic lookbook image ═══ -->
 <section class="about-section" id="about">
   <div class="section-wrap">
     <div class="about-inner">
       <div class="about-photo">
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=700&h=875&fit=crop&auto=format&q=85" alt="About SmartPickr" loading="lazy" />
+        
+        <img src="https://pinterest-lookbooks-beta.vercel.app/oversized-black-leather-utility-jacket-6511d2af-og.webp" alt="About SmartPickr" loading="lazy" />
+        
       </div>
       <div class="about-content">
         <p class="about-eye">Get to Know Us</p>
@@ -871,21 +888,21 @@
       
       <div class="shop-item" onclick="window.location.href='floral-patterned-dress-aeedb449.html'">
         
-        <img src="floral-patterned-dress-aeedb449-og.webp" alt="Floral Romance in Every Stitch: My Favorite Floral Patterned Dress | SmartPickr Review" loading="lazy" />
+        <img src="https://pinterest-lookbooks-beta.vercel.app/floral-patterned-dress-aeedb449-og.webp" alt="Floral Romance in Every Stitch: My Favorite Floral Patterned Dress | SmartPickr Review" loading="lazy" />
         
         <div class="shop-veil"><span class="shop-label">View Lookbook</span></div>
       </div>
       
       <div class="shop-item" onclick="window.location.href='oversized-black-leather-utility-jacket-6511d2af.html'">
         
-        <img src="oversized-black-leather-utility-jacket-6511d2af-og.webp" alt="Found: The Perfect Oversized Black Leather Utility Jacket | Hands-On Discovery &amp; Review" loading="lazy" />
+        <img src="https://pinterest-lookbooks-beta.vercel.app/oversized-black-leather-utility-jacket-6511d2af-og.webp" alt="Found: The Perfect Oversized Black Leather Utility Jacket | Hands-On Discovery &amp; Review" loading="lazy" />
         
         <div class="shop-veil"><span class="shop-label">View Lookbook</span></div>
       </div>
       
       <div class="shop-item" onclick="window.location.href='halloween-ghost-decor-14e593ff.html'">
         
-        <img src="halloween-ghost-decor-14e593ff-og.webp" alt="Why Everyone Is Talking About The Halloween Ghost Decor | Hands-On Kitchen &amp; Home Evaluation" loading="lazy" />
+        <img src="https://pinterest-lookbooks-beta.vercel.app/halloween-ghost-decor-14e593ff-og.webp" alt="Why Everyone Is Talking About The Halloween Ghost Decor | Hands-On Kitchen &amp; Home Evaluation" loading="lazy" />
         
         <div class="shop-veil"><span class="shop-label">View Lookbook</span></div>
       </div>
@@ -894,16 +911,52 @@
   </div>
 </section>
 
-<!-- ═══ FOLLOW SECTION ══════════════════════════════════════════════════ -->
+<!-- ═══ FOLLOW SECTION — FIX 3: Dynamic lookbook images ═══ -->
 <section class="follow-section">
   <div class="section-wrap">
     <h2 class="section-heading">Follow Us Elsewhere</h2>
     <div class="follow-grid">
-      <div class="follow-tile"><img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=300&h=300&fit=crop&auto=format&q=75" alt="Lifestyle 1" loading="lazy" /></div>
-      <div class="follow-tile"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=300&h=300&fit=crop&auto=format&q=75" alt="Lifestyle 2" loading="lazy" /></div>
-      <div class="follow-tile"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&h=300&fit=crop&auto=format&q=75" alt="Lifestyle 3" loading="lazy" /></div>
-      <div class="follow-tile"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=300&h=300&fit=crop&auto=format&q=75" alt="Lifestyle 4" loading="lazy" /></div>
-      <div class="follow-tile"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=300&h=300&fit=crop&auto=format&q=75" alt="Lifestyle 5" loading="lazy" /></div>
+      
+      <div class="follow-tile">
+        <a href="floral-patterned-dress-aeedb449.html">
+          
+          <img src="https://pinterest-lookbooks-beta.vercel.app/floral-patterned-dress-aeedb449-og.webp" alt="Floral Romance in Every Stitch: My Favorite Floral Patterned Dress" loading="lazy" />
+          
+        </a>
+      </div>
+      
+      <div class="follow-tile">
+        <a href="oversized-black-leather-utility-jacket-6511d2af.html">
+          
+          <img src="https://pinterest-lookbooks-beta.vercel.app/oversized-black-leather-utility-jacket-6511d2af-og.webp" alt="Found: The Perfect Oversized Black Leather Utility Jacket" loading="lazy" />
+          
+        </a>
+      </div>
+      
+      <div class="follow-tile">
+        <a href="halloween-ghost-decor-14e593ff.html">
+          
+          <img src="https://pinterest-lookbooks-beta.vercel.app/halloween-ghost-decor-14e593ff-og.webp" alt="Why Everyone Is Talking About The Halloween Ghost Decor" loading="lazy" />
+          
+        </a>
+      </div>
+      
+      <div class="follow-tile">
+        <a href="reference-product-6887ec60.html">
+          
+          <img src="https://pinterest-lookbooks-beta.vercel.app/reference-product-6887ec60-og.webp" alt="Unveiling the Mystique of Reference Product: A Hauntingly Beautiful Addition to Your Living Room" loading="lazy" />
+          
+        </a>
+      </div>
+      
+      <div class="follow-tile">
+        <a href="reference-product-f4fb0473.html">
+          
+          <img src="https://pinterest-lookbooks-beta.vercel.app/reference-product-f4fb0473-og.webp" alt="Cozy Nights Begin Here: A Timeless Candle Set for the Living Room" loading="lazy" />
+          
+        </a>
+      </div>
+      
     </div>
   </div>
 </section>
@@ -961,7 +1014,14 @@
     menu.classList.toggle('open');
   }
 
-  // Client-side search filtering
+  // FIX 5: Search handler with Enter key support + live filtering
+  function handleSearch(event) {
+    filterLookbooks();
+    if (event.key === 'Enter') {
+      document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   function filterLookbooks() {
     const q = document.getElementById('searchInput').value.toLowerCase().trim();
     const cards = document.querySelectorAll('.blog-card');
