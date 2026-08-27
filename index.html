@@ -3,41 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curated Lookbooks &amp; Authentic Reviews</title>
-  <meta name="description" content="Explore our hand-picked collection of trending fashion, home, and lifestyle lookbooks with honest hands-on editorial reviews.">
-  <meta property="og:title" content="Curated Lookbooks &amp; Authentic Reviews">
-  <meta property="og:description" content="Explore hand-picked style and product lookbooks with honest editorial reviews.">
+  <title>POISE | The Blog</title>
+  <meta name="description" content="Explore our hand-picked collection of trending fashion, style, and lifestyle lookbooks.">
+  <meta property="og:title" content="POISE | The Blog">
+  <meta property="og:description" content="Curated fashion, lifestyle, and beauty editorial lookbooks.">
   <meta property="og:type" content="website">
   
-  <!-- Google Fonts: Playfair Display (Serif) & Montserrat (Sans) -->
+  <!-- Google Fonts: Playfair Display / Cormorant & Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
-    /* ── Ethereal Editorial Design Tokens ── */
+    /* ── POISE Exact Header & Hero Design System ── */
     :root {
+      --color-bg: #FFFFFF;
       --color-surface: #F9F9F9;
-      --color-surface-container: #EEEEEE;
-      --color-surface-lowest: #FFFFFF;
-      --color-surface-low: #F3F3F4;
-      --color-on-surface: #1A1C1C;
-      --color-on-surface-variant: #4C4546;
-      --color-outline: #7E7576;
-      --color-hairline: #E5E5E5;
+      --color-border: #D1D1D1;
+      --color-border-light: #E8E8E8;
+      --color-text: #111111;
+      --color-text-muted: #666666;
+      --color-accent: #C68E6F;
       
-      --color-primary: #000000;
-      --color-on-primary: #FFFFFF;
-      
-      --color-sand-accent: #C68E6F;
-      --color-sand-light: #F7EFE9;
-      --color-off-white: #F2F2F2;
-      --color-charcoal: #1A1A1A;
-      
-      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      
-      --container-max: 1280px;
     }
 
     *, *::before, *::after {
@@ -48,295 +37,356 @@
 
     body {
       font-family: var(--font-sans);
-      background-color: var(--color-surface);
-      color: var(--color-charcoal);
+      background-color: var(--color-bg);
+      color: var(--color-text);
       min-height: 100vh;
-      line-height: 1.6;
-      font-size: 15px;
+      line-height: 1.5;
+      font-size: 14px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       display: flex;
       flex-direction: column;
     }
 
-    /* ── Masthead Header ── */
-    .masthead {
+    /* ── Top Header Bar with Crisp Vertical Grid Dividers ── */
+    .top-nav-bar {
+      width: 100%;
       background: #FFFFFF;
-      border-bottom: 1px solid var(--color-hairline);
-      padding: 64px 24px 48px;
-      text-align: center;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
 
-    .brand-eyebrow {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--color-sand-accent);
-      margin-bottom: 16px;
-      display: inline-block;
-    }
-
-    h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(32px, 5.5vw, 56px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--color-primary);
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-
-    .subtitle {
-      font-size: clamp(15px, 1.8vw, 17px);
-      color: var(--color-on-surface-variant);
-      max-width: 600px;
-      margin: 0 auto 32px;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-
-    /* ── Search Bar (Sharp 0px Minimalist Luxury) ── */
-    .search-wrap {
-      max-width: 520px;
+    .nav-grid {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      max-width: 1400px;
       margin: 0 auto;
+      height: 64px;
+    }
+
+    .nav-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--color-border);
+      padding: 0 24px;
+    }
+
+    .nav-brand {
+      padding: 0 44px 0 28px;
+    }
+
+    .brand-logo {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: #111111;
+      text-decoration: none;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .nav-link-cell {
+      padding: 0 32px;
+    }
+
+    .nav-link {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #111111;
+      text-decoration: none;
+      transition: color 0.2s ease;
       position: relative;
     }
 
-    .search-input {
+    .nav-link:hover {
+      color: var(--color-accent);
+    }
+
+    .nav-search-cell {
+      padding: 0 24px;
+      min-width: 220px;
+      justify-content: flex-start;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       width: 100%;
-      padding: 14px 20px;
-      border-radius: 0px;
-      border: 1px solid var(--color-primary);
-      background: var(--color-surface-lowest);
-      color: var(--color-primary);
+    }
+
+    .search-icon {
+      color: #666666;
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      border: none;
+      outline: none;
       font-family: var(--font-sans);
       font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      outline: none;
-      transition: all 0.2s ease;
+      color: #111111;
+      width: 100%;
+      background: transparent;
     }
 
     .search-input::placeholder {
-      color: var(--color-outline);
-      text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: 0.1em;
+      color: #888888;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      letter-spacing: 0.05em;
     }
 
-    .search-input:focus {
-      border-color: var(--color-sand-accent);
-      box-shadow: 0 0 0 2px rgba(198, 142, 111, 0.2);
+    .nav-social-cell {
+      margin-left: auto;
+      border-right: none;
+      border-left: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 0 28px;
     }
 
-    /* ── Catalog Container ── */
-    .catalog-container {
+    .social-icon {
+      color: #111111;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s ease;
+    }
+
+    .social-icon:hover {
+      opacity: 0.6;
+    }
+
+    /* ── Mobile Nav Layout ── */
+    @media (max-width: 860px) {
+      .nav-grid {
+        height: auto;
+        flex-wrap: wrap;
+      }
+      .nav-brand {
+        flex-grow: 1;
+        height: 54px;
+        border-right: none;
+      }
+      .nav-link-cell {
+        padding: 0 16px;
+        height: 44px;
+      }
+      .nav-search-cell {
+        flex-grow: 1;
+        height: 44px;
+        border-left: 1px solid var(--color-border);
+      }
+      .nav-social-cell {
+        display: none;
+      }
+    }
+
+    /* ── Hero Section (THE BLOG) ── */
+    .hero-section {
       width: 100%;
-      max-width: var(--container-max);
+      text-align: center;
+      padding: 60px 20px 48px;
+      background: #FFFFFF;
+    }
+
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 6vw, 68px);
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #111111;
+      margin-bottom: 48px;
+      line-height: 1;
+    }
+
+    .hero-divider {
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-border);
       margin: 0 auto;
-      padding: 64px 24px 80px;
+    }
+
+    /* ── 3-Column Magazine Photo & Story Grid ── */
+    .catalog-main {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
       flex-grow: 1;
     }
 
-    .catalog-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      border-bottom: 1px solid var(--color-hairline);
-      padding-bottom: 16px;
-      margin-bottom: 40px;
-    }
-
-    .catalog-title {
-      font-family: var(--font-serif);
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--color-primary);
-    }
-
-    .catalog-count {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--color-outline);
-    }
-
-    /* ── Magazine Card Grid (Sharp 0px Geometry) ── */
-    .grid {
+    .catalog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 40px;
     }
 
-    .editorial-card {
-      background: var(--color-surface-lowest);
-      border: 1px solid var(--color-hairline);
-      border-radius: 0px;
-      overflow: hidden;
+    @media (max-width: 640px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .story-card {
       display: flex;
       flex-direction: column;
       text-decoration: none;
       color: inherit;
-      transition: all 0.25s ease;
-      position: relative;
+      background: #FFFFFF;
+      transition: transform 0.25s ease;
     }
 
-    .editorial-card:hover {
-      border-color: var(--color-sand-accent);
+    .story-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
     }
 
-    .card-img-wrap {
-      aspect-ratio: 3/4;
-      position: relative;
-      background: #000000;
+    .story-img-wrap {
+      aspect-ratio: 4/5;
+      width: 100%;
       overflow: hidden;
-      border-bottom: 1px solid var(--color-hairline);
+      background: #EEEEEE;
+      position: relative;
     }
 
-    .card-img {
+    .story-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 0px;
       transition: transform 0.4s ease;
     }
 
-    .editorial-card:hover .card-img {
+    .story-card:hover .story-img {
       transform: scale(1.03);
     }
 
-    .card-badge {
+    .story-badge {
       position: absolute;
       top: 14px;
       left: 14px;
-      padding: 5px 12px;
-      border-radius: 0px;
-      font-family: var(--font-sans);
+      padding: 4px 10px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #FFFFFF;
       font-size: 10px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      background: rgba(0, 0, 0, 0.85);
-      color: #FFFFFF;
-      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .card-body {
-      padding: 28px;
+    .story-body {
+      padding-top: 20px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
-      background: #FFFFFF;
     }
 
-    .card-category {
-      font-family: var(--font-sans);
-      font-size: 10px;
+    .story-category {
+      font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--color-sand-accent);
+      color: var(--color-accent);
       margin-bottom: 8px;
-      display: block;
     }
 
-    .card-title {
+    .story-title {
       font-family: var(--font-serif);
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 600;
       line-height: 1.3;
-      margin-bottom: 10px;
-      color: var(--color-primary);
+      color: #111111;
+      margin-bottom: 8px;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
-    .card-desc {
+    .story-desc {
       font-size: 14px;
-      color: var(--color-on-surface-variant);
+      color: var(--color-text-muted);
       line-height: 1.6;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      flex-grow: 1;
       font-weight: 300;
     }
 
-    .card-footer {
+    .story-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid var(--color-hairline);
-      padding-top: 16px;
+      border-top: 1px solid var(--color-border-light);
+      padding-top: 12px;
       margin-top: auto;
     }
 
-    .card-date {
-      font-family: var(--font-sans);
+    .story-date {
       font-size: 11px;
-      color: var(--color-outline);
+      color: #888888;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    .card-cta {
-      font-family: var(--font-sans);
+    .story-cta {
       font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--color-primary);
+      color: #111111;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       transition: color 0.2s ease;
     }
 
-    .editorial-card:hover .card-cta {
-      color: var(--color-sand-accent);
+    .story-card:hover .story-cta {
+      color: var(--color-accent);
     }
 
     /* ── Empty State ── */
     .empty-state {
       grid-column: 1 / -1;
       text-align: center;
-      padding: 80px 24px;
-      background: #FFFFFF;
-      border: 1px solid var(--color-hairline);
+      padding: 80px 20px;
+      color: var(--color-text-muted);
     }
 
     .empty-state h3 {
       font-family: var(--font-serif);
       font-size: 24px;
+      color: #111111;
       margin-bottom: 8px;
     }
 
-    .empty-state p {
-      color: var(--color-on-surface-variant);
-      font-size: 15px;
-    }
-
     /* ── Footer ── */
-    .footer {
+    .site-footer {
       background: #FFFFFF;
-      border-top: 1px solid var(--color-hairline);
+      border-top: 1px solid var(--color-border);
       padding: 48px 24px;
       text-align: center;
       font-size: 12px;
-      color: var(--color-outline);
+      color: #888888;
+      margin-top: auto;
     }
 
-    .footer p {
+    .site-footer p {
       max-width: 600px;
       margin: 0 auto 8px;
       line-height: 1.6;
@@ -345,112 +395,146 @@
 </head>
 <body>
 
-  <!-- ── Masthead Header ── -->
-  <header class="masthead">
-    <span class="brand-eyebrow">Ethereal Lookbook Archive</span>
-    <h1>Curated Lookbooks &amp; Authentic Reviews</h1>
-    <p class="subtitle">A selective curation of honest hands-on reviews, tactile evaluations, and styling lookbooks.</p>
-    
-    <div class="search-wrap">
-      <input type="text" id="searchInput" class="search-input" placeholder="Search archive by style, designer, keyword..." onkeyup="filterLookbooks()">
+  <!-- ── Top Header Navigation with Grid Dividers ── -->
+  <header class="top-nav-bar">
+    <div class="nav-grid">
+      
+      <!-- Brand Box -->
+      <div class="nav-cell nav-brand">
+        <a href="/" class="brand-logo">POISE</a>
+      </div>
+
+      <!-- Nav Links -->
+      <div class="nav-cell nav-link-cell">
+        <a href="/" class="nav-link">BLOG</a>
+      </div>
+      <div class="nav-cell nav-link-cell">
+        <a href="#about" class="nav-link">ABOUT</a>
+      </div>
+      <div class="nav-cell nav-link-cell">
+        <a href="#contact" class="nav-link">CONTACT</a>
+      </div>
+
+      <!-- Search Box -->
+      <div class="nav-cell nav-search-cell">
+        <div class="search-box">
+          <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search..." onkeyup="filterLookbooks()">
+        </div>
+      </div>
+
+      <!-- Social Icons Box -->
+      <div class="nav-cell nav-social-cell">
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.688 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z"/></svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.13-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+
     </div>
   </header>
 
-  <!-- ── Main Catalog Grid ── -->
-  <main class="catalog-container">
-    <div class="catalog-header">
-      <h2 class="catalog-title">Recent Lookbooks</h2>
-      <span class="catalog-count" id="lookbookCount">5 Curated Stories</span>
-    </div>
+  <!-- ── Hero Headline Section (THE BLOG) ── -->
+  <section class="hero-section">
+    <h1 class="hero-headline">THE BLOG</h1>
+    <div class="hero-divider"></div>
+  </section>
 
-    <div class="grid" id="lookbookGrid">
+  <!-- ── 3-Column Magazine Photo & Story Grid ── -->
+  <main class="catalog-main">
+    <div class="catalog-grid" id="lookbookGrid">
       
-      <a href="floral-patterned-dress-aeedb449.html" class="editorial-card" data-title="the cottagecore floral dress i can&#39;t stop wearing | hands-on discovery &amp; review the cottagecore floral dress i can&#39;t stop wearing dreamy statement puff sleeves, vivid floral patterns, and a breezy silhouette for effortless everyday style.">
-        <div class="card-img-wrap">
+      <a href="floral-patterned-dress-aeedb449.html" class="story-card" data-title="the cottagecore floral dress i can&#39;t stop wearing | hands-on discovery &amp; review the cottagecore floral dress i can&#39;t stop wearing dreamy statement puff sleeves, vivid floral patterns, and a breezy silhouette for effortless everyday style.">
+        <div class="story-img-wrap">
           
-          <img src="floral-patterned-dress-aeedb449-og.webp" alt="The Cottagecore Floral Dress I Can&#39;t Stop Wearing | Hands-On Discovery &amp; Review" class="card-img" loading="lazy">
+          <img src="floral-patterned-dress-aeedb449-og.webp" alt="The Cottagecore Floral Dress I Can&#39;t Stop Wearing | Hands-On Discovery &amp; Review" class="story-img" loading="lazy">
           
-          <span class="card-badge">Curator&#39;s Pick</span>
+          <span class="story-badge">Curator&#39;s Pick</span>
         </div>
-        <div class="card-body">
-          <span class="card-category">Curated Lookbook</span>
-          <h3 class="card-title">The Cottagecore Floral Dress I Can&#39;t Stop Wearing | Hands-On Discovery &amp; Review</h3>
-          <p class="card-desc">Dreamy statement puff sleeves, vivid floral patterns, and a breezy silhouette for effortless everyday style.</p>
-          <div class="card-footer">
-            <span class="card-date">Aug 27, 2026</span>
-            <span class="card-cta">Explore &rarr;</span>
+        <div class="story-body">
+          <span class="story-category">Lookbook Collection</span>
+          <h2 class="story-title">The Cottagecore Floral Dress I Can&#39;t Stop Wearing | Hands-On Discovery &amp; Review</h2>
+          <p class="story-desc">Dreamy statement puff sleeves, vivid floral patterns, and a breezy silhouette for effortless everyday style.</p>
+          <div class="story-footer">
+            <span class="story-date">Aug 27, 2026</span>
+            <span class="story-cta">Read Story &rarr;</span>
           </div>
         </div>
       </a>
       
-      <a href="oversized-black-leather-utility-jacket-6511d2af.html" class="editorial-card" data-title="found: the perfect oversized black leather utility jacket | hands-on discovery &amp; review found: the perfect oversized black leather utility jacket butter-soft leather, functional snap utility pockets, and that effortless oversized drape you have been searching for.">
-        <div class="card-img-wrap">
+      <a href="oversized-black-leather-utility-jacket-6511d2af.html" class="story-card" data-title="found: the perfect oversized black leather utility jacket | hands-on discovery &amp; review found: the perfect oversized black leather utility jacket butter-soft leather, functional snap utility pockets, and that effortless oversized drape you have been searching for.">
+        <div class="story-img-wrap">
           
-          <img src="oversized-black-leather-utility-jacket-6511d2af-og.webp" alt="Found: The Perfect Oversized Black Leather Utility Jacket | Hands-On Discovery &amp; Review" class="card-img" loading="lazy">
+          <img src="oversized-black-leather-utility-jacket-6511d2af-og.webp" alt="Found: The Perfect Oversized Black Leather Utility Jacket | Hands-On Discovery &amp; Review" class="story-img" loading="lazy">
           
-          <span class="card-badge">Curator&#39;s Pick</span>
+          <span class="story-badge">Curator&#39;s Pick</span>
         </div>
-        <div class="card-body">
-          <span class="card-category">Curated Lookbook</span>
-          <h3 class="card-title">Found: The Perfect Oversized Black Leather Utility Jacket | Hands-On Discovery &amp; Review</h3>
-          <p class="card-desc">Butter-soft leather, functional snap utility pockets, and that effortless oversized drape you have been searching for.</p>
-          <div class="card-footer">
-            <span class="card-date">Aug 27, 2026</span>
-            <span class="card-cta">Explore &rarr;</span>
+        <div class="story-body">
+          <span class="story-category">Lookbook Collection</span>
+          <h2 class="story-title">Found: The Perfect Oversized Black Leather Utility Jacket | Hands-On Discovery &amp; Review</h2>
+          <p class="story-desc">Butter-soft leather, functional snap utility pockets, and that effortless oversized drape you have been searching for.</p>
+          <div class="story-footer">
+            <span class="story-date">Aug 27, 2026</span>
+            <span class="story-cta">Read Story &rarr;</span>
           </div>
         </div>
       </a>
       
-      <a href="halloween-ghost-decor-14e593ff.html" class="editorial-card" data-title="why everyone is talking about the halloween ghost decor | hands-on kitchen &amp; home evaluation why everyone is talking about the halloween ghost decor an unfiltered look at the viral halloween ghost decor by curated pick — honest breakdown, tactile notes, and buyer guide.">
-        <div class="card-img-wrap">
+      <a href="halloween-ghost-decor-14e593ff.html" class="story-card" data-title="why everyone is talking about the halloween ghost decor | hands-on kitchen &amp; home evaluation why everyone is talking about the halloween ghost decor an unfiltered look at the viral halloween ghost decor by curated pick — honest breakdown, tactile notes, and buyer guide.">
+        <div class="story-img-wrap">
           
-          <img src="halloween-ghost-decor-14e593ff-og.webp" alt="Why Everyone Is Talking About The Halloween Ghost Decor | Hands-On Kitchen &amp; Home Evaluation" class="card-img" loading="lazy">
+          <img src="halloween-ghost-decor-14e593ff-og.webp" alt="Why Everyone Is Talking About The Halloween Ghost Decor | Hands-On Kitchen &amp; Home Evaluation" class="story-img" loading="lazy">
           
-          <span class="card-badge">Curator&#39;s Pick</span>
+          <span class="story-badge">Curator&#39;s Pick</span>
         </div>
-        <div class="card-body">
-          <span class="card-category">Curated Lookbook</span>
-          <h3 class="card-title">Why Everyone Is Talking About The Halloween Ghost Decor | Hands-On Kitchen &amp; Home Evaluation</h3>
-          <p class="card-desc">An unfiltered look at the viral Halloween Ghost Decor by Curated Pick — honest breakdown, tactile notes, and buyer guide.</p>
-          <div class="card-footer">
-            <span class="card-date">Aug 27, 2026</span>
-            <span class="card-cta">Explore &rarr;</span>
+        <div class="story-body">
+          <span class="story-category">Lookbook Collection</span>
+          <h2 class="story-title">Why Everyone Is Talking About The Halloween Ghost Decor | Hands-On Kitchen &amp; Home Evaluation</h2>
+          <p class="story-desc">An unfiltered look at the viral Halloween Ghost Decor by Curated Pick — honest breakdown, tactile notes, and buyer guide.</p>
+          <div class="story-footer">
+            <span class="story-date">Aug 27, 2026</span>
+            <span class="story-cta">Read Story &rarr;</span>
           </div>
         </div>
       </a>
       
-      <a href="reference-product-6887ec60.html" class="editorial-card" data-title="unveiling the mystique of reference product: a hauntingly beautiful addition to your living room | hands-on discovery &amp; review unveiling the mystique of reference product: a hauntingly beautiful addition to your living room discover the enchanting blend of ghostly eyes and pumpkin stem details that will leave you spellbound, and find out why this unique piece is a must-have for any interior design enthusiast">
-        <div class="card-img-wrap">
+      <a href="reference-product-6887ec60.html" class="story-card" data-title="unveiling the mystique of reference product: a hauntingly beautiful addition to your living room | hands-on discovery &amp; review unveiling the mystique of reference product: a hauntingly beautiful addition to your living room discover the enchanting blend of ghostly eyes and pumpkin stem details that will leave you spellbound, and find out why this unique piece is a must-have for any interior design enthusiast">
+        <div class="story-img-wrap">
           
-          <img src="reference-product-6887ec60-og.webp" alt="Unveiling the Mystique of Reference Product: A Hauntingly Beautiful Addition to Your Living Room | Hands-On Discovery &amp; Review" class="card-img" loading="lazy">
+          <img src="reference-product-6887ec60-og.webp" alt="Unveiling the Mystique of Reference Product: A Hauntingly Beautiful Addition to Your Living Room | Hands-On Discovery &amp; Review" class="story-img" loading="lazy">
           
-          <span class="card-badge">Curator&#39;s Pick</span>
+          <span class="story-badge">Curator&#39;s Pick</span>
         </div>
-        <div class="card-body">
-          <span class="card-category">Curated Lookbook</span>
-          <h3 class="card-title">Unveiling the Mystique of Reference Product: A Hauntingly Beautiful Addition to Your Living Room | Hands-On Discovery &amp; Review</h3>
-          <p class="card-desc">Discover the enchanting blend of ghostly eyes and pumpkin stem details that will leave you spellbound, and find out why this unique piece is a must-have for any interior design enthusiast</p>
-          <div class="card-footer">
-            <span class="card-date">Aug 27, 2026</span>
-            <span class="card-cta">Explore &rarr;</span>
+        <div class="story-body">
+          <span class="story-category">Lookbook Collection</span>
+          <h2 class="story-title">Unveiling the Mystique of Reference Product: A Hauntingly Beautiful Addition to Your Living Room | Hands-On Discovery &amp; Review</h2>
+          <p class="story-desc">Discover the enchanting blend of ghostly eyes and pumpkin stem details that will leave you spellbound, and find out why this unique piece is a must-have for any interior design enthusiast</p>
+          <div class="story-footer">
+            <span class="story-date">Aug 27, 2026</span>
+            <span class="story-cta">Read Story &rarr;</span>
           </div>
         </div>
       </a>
       
-      <a href="reference-product-f4fb0473.html" class="editorial-card" data-title="cozy nights begin here: a timeless candle set for the living room | hands-on kitchen &amp; home evaluation cozy nights begin here: a timeless candle set for the living room elevate your home&#39;s ambiance with our handcrafted candle set, featuring a soothing blend of scents and textures that will transport you to a state of serenity.">
-        <div class="card-img-wrap">
+      <a href="reference-product-f4fb0473.html" class="story-card" data-title="cozy nights begin here: a timeless candle set for the living room | hands-on kitchen &amp; home evaluation cozy nights begin here: a timeless candle set for the living room elevate your home&#39;s ambiance with our handcrafted candle set, featuring a soothing blend of scents and textures that will transport you to a state of serenity.">
+        <div class="story-img-wrap">
           
-          <img src="reference-product-f4fb0473-og.webp" alt="Cozy Nights Begin Here: A Timeless Candle Set for the Living Room | Hands-On Kitchen &amp; Home Evaluation" class="card-img" loading="lazy">
+          <img src="reference-product-f4fb0473-og.webp" alt="Cozy Nights Begin Here: A Timeless Candle Set for the Living Room | Hands-On Kitchen &amp; Home Evaluation" class="story-img" loading="lazy">
           
-          <span class="card-badge">Curator&#39;s Pick</span>
+          <span class="story-badge">Curator&#39;s Pick</span>
         </div>
-        <div class="card-body">
-          <span class="card-category">Curated Lookbook</span>
-          <h3 class="card-title">Cozy Nights Begin Here: A Timeless Candle Set for the Living Room | Hands-On Kitchen &amp; Home Evaluation</h3>
-          <p class="card-desc">Elevate your home&#39;s ambiance with our handcrafted candle set, featuring a soothing blend of scents and textures that will transport you to a state of serenity.</p>
-          <div class="card-footer">
-            <span class="card-date">Aug 27, 2026</span>
-            <span class="card-cta">Explore &rarr;</span>
+        <div class="story-body">
+          <span class="story-category">Lookbook Collection</span>
+          <h2 class="story-title">Cozy Nights Begin Here: A Timeless Candle Set for the Living Room | Hands-On Kitchen &amp; Home Evaluation</h2>
+          <p class="story-desc">Elevate your home&#39;s ambiance with our handcrafted candle set, featuring a soothing blend of scents and textures that will transport you to a state of serenity.</p>
+          <div class="story-footer">
+            <span class="story-date">Aug 27, 2026</span>
+            <span class="story-cta">Read Story &rarr;</span>
           </div>
         </div>
       </a>
@@ -459,31 +543,25 @@
   </main>
 
   <!-- ── Footer ── -->
-  <footer class="footer">
+  <footer class="site-footer">
     <p>
       <strong>FTC Disclosure:</strong> As an Amazon Associate, we earn from qualifying purchases at no additional cost to you. Product pricing and availability are verified and subject to change.
     </p>
-    <p>&copy; 2026 Ethereal Lookbooks. All rights reserved.</p>
+    <p>&copy; 2026 POISE Magazine & Lookbooks. All rights reserved.</p>
   </footer>
 
   <script>
     function filterLookbooks() {
       const q = document.getElementById('searchInput').value.toLowerCase().trim();
-      const cards = document.querySelectorAll('.editorial-card');
-      let visibleCount = 0;
+      const cards = document.querySelectorAll('.story-card');
       cards.forEach(card => {
         const text = card.getAttribute('data-title') || '';
         if (text.includes(q)) {
           card.style.display = 'flex';
-          visibleCount++;
         } else {
           card.style.display = 'none';
         }
       });
-      const countEl = document.getElementById('lookbookCount');
-      if (countEl) {
-        countEl.textContent = `${visibleCount} Curated Stories`;
-      }
     }
   </script>
 </body>
