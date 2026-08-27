@@ -22,8 +22,8 @@ export default function handler(request) {
   const subid = url.searchParams.get('subid') || url.searchParams.get('ascsubtag') || 'sp_direct';
 
   // 3. Associate tags (Environment variables or fallback defaults)
-  const US_TAG = process.env.AMAZON_ASSOCIATE_TAG_US || 'smartpickr-20';
-  const IN_TAG = process.env.AMAZON_ASSOCIATE_TAG_IN || 'smartpickr-21';
+  const US_TAG = process.env.AMAZON_ASSOCIATE_TAG_US || 'nizamuddinsam-20';
+  const IN_TAG = process.env.AMAZON_ASSOCIATE_TAG_IN || 'nizamuddins0a-21';
 
   let destination = '';
 
