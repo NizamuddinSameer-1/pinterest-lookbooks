@@ -8,8 +8,12 @@ export const config = {
 export default function handler(request) {
   const url = new URL(request.url);
 
-  // 1. Detect visitor country from Vercel Edge geo-header
-  const country = (request.headers.get('x-vercel-ip-country') || 'US').toUpperCase();
+  // 1. Detect visitor country from query param (override) or Vercel Edge geo-header
+  const country = (
+    url.searchParams.get('country') ||
+    request.headers.get('x-vercel-ip-country') ||
+    'US'
+  ).toUpperCase();
 
   // 2. Extract query parameters
   const asin = url.searchParams.get('asin') || '';
