@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curated Lookbooks &amp; Authentic Reviews</title>
+  <meta name="description" content="Explore our hand-picked collection of trending style, home, and lifestyle lookbooks with honest hands-on reviews.">
+  <meta property="og:title" content="Curated Lookbooks &amp; Authentic Reviews">
+  <meta property="og:description" content="Explore hand-picked style and product lookbooks with honest reviews.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090a0f;
+      --card: #13151f;
+      --card-hover: #1a1d2c;
+      --border: #222638;
+      --accent: #f43f5e;
+      --accent-glow: rgba(244, 63, 94, 0.25);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --gold: #fbbf24;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    .header {
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+      background: radial-gradient(circle at 50% 0%, rgba(244,63,94,0.12) 0%, transparent 70%);
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(244, 63, 94, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(244, 63, 94, 0.25);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff 40%, #d1d5db 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto 1.5rem;
+    }
+    .search-wrap {
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1.25rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(244, 63, 94, 0.4);
+      box-shadow: 0 12px 24px -10px rgba(0,0,0,0.5), 0 0 20px var(--accent-glow);
+    }
+    .card-img-wrap {
+      aspect-ratio: 9/12;
+      position: relative;
+      background: #1e2235;
+      overflow: hidden;
+    }
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .card:hover .card-img {
+      transform: scale(1.03);
+    }
+    .card-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 0.75rem;
+      margin-top: auto;
+    }
+    .card-cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="badge">✨ Verified Curations & Reviews</div>
+    <h1>Curated Lookbooks &amp; Authentic Reviews</h1>
+    <p class="subtitle">Explore hands-on styling guides, tactile breakdowns, and authentic UGC reviews.</p>
+    <div class="search-wrap">
+      <input type="text" id="searchInput" class="search-input" placeholder="Search lookbooks, products, styles..." onkeyup="filterLookbooks()">
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid" id="lookbookGrid">
+      
+      <a href="halloween-ghost-decor-14e593ff.html" class="card" data-title="why everyone is talking about the halloween ghost decor | hands-on kitchen &amp; home evaluation why everyone is talking about the halloween ghost decor">
+        <div class="card-img-wrap">
+          
+          <img src="halloween-ghost-decor-14e593ff-og.webp" alt="Why Everyone Is Talking About The Halloween Ghost Decor | Hands-On Kitchen &amp; Home Evaluation" class="card-img" loading="lazy">
+          
+          <span class="card-badge">Curator&#39;s Pick</span>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Why Everyone Is Talking About The Halloween Ghost Decor | Hands-On Kitchen &amp; Home Evaluation</h2>
+          <p class="card-desc">An unfiltered look at the viral Halloween Ghost Decor by Curated Pick — honest breakdown, tactile notes, and buyer guide.</p>
+          <div class="card-footer">
+            <span style="font-size:0.75rem; color:#9ca3af;">Aug 27, 2026</span>
+            <span class="card-cta">View Lookbook &rarr;</span>
+          </div>
+        </div>
+      </a>
+      
+      <a href="oversized-black-leather-utility-jacket-6511d2af.html" class="card" data-title="why everyone is talking about the oversized black leather utility jacket | hands-on discovery &amp; review why everyone is talking about the oversized black leather utility jacket">
+        <div class="card-img-wrap">
+          
+          <img src="oversized-black-leather-utility-jacket-6511d2af-og.webp" alt="Why Everyone Is Talking About The Oversized Black Leather Utility Jacket | Hands-On Discovery &amp; Review" class="card-img" loading="lazy">
+          
+          <span class="card-badge">Curator&#39;s Pick</span>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Why Everyone Is Talking About The Oversized Black Leather Utility Jacket | Hands-On Discovery &amp; Review</h2>
+          <p class="card-desc">An unfiltered look at the viral Oversized Black Leather Utility Jacket by Curated Pick — honest breakdown, tactile notes, and buyer guide.</p>
+          <div class="card-footer">
+            <span style="font-size:0.75rem; color:#9ca3af;">Aug 27, 2026</span>
+            <span class="card-cta">View Lookbook &rarr;</span>
+          </div>
+        </div>
+      </a>
+      
+      <a href="reference-product-6887ec60.html" class="card" data-title="unveiling the mystique of reference product: a hauntingly beautiful addition to your living room | hands-on discovery &amp; review unveiling the mystique of reference product: a hauntingly beautiful addition to your living room">
+        <div class="card-img-wrap">
+          
+          <img src="reference-product-6887ec60-og.webp" alt="Unveiling the Mystique of Reference Product: A Hauntingly Beautiful Addition to Your Living Room | Hands-On Discovery &amp; Review" class="card-img" loading="lazy">
+          
+          <span class="card-badge">Curator&#39;s Pick</span>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Unveiling the Mystique of Reference Product: A Hauntingly Beautiful Addition to Your Living Room | Hands-On Discovery &amp; Review</h2>
+          <p class="card-desc">Discover the enchanting blend of ghostly eyes and pumpkin stem details that will leave you spellbound, and find out why this unique piece is a must-have for any interior design enthusiast</p>
+          <div class="card-footer">
+            <span style="font-size:0.75rem; color:#9ca3af;">Aug 27, 2026</span>
+            <span class="card-cta">View Lookbook &rarr;</span>
+          </div>
+        </div>
+      </a>
+      
+      <a href="reference-product-f4fb0473.html" class="card" data-title="cozy nights begin here: a timeless candle set for the living room | hands-on kitchen &amp; home evaluation cozy nights begin here: a timeless candle set for the living room">
+        <div class="card-img-wrap">
+          
+          <img src="reference-product-f4fb0473-og.webp" alt="Cozy Nights Begin Here: A Timeless Candle Set for the Living Room | Hands-On Kitchen &amp; Home Evaluation" class="card-img" loading="lazy">
+          
+          <span class="card-badge">Curator&#39;s Pick</span>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Cozy Nights Begin Here: A Timeless Candle Set for the Living Room | Hands-On Kitchen &amp; Home Evaluation</h2>
+          <p class="card-desc">Elevate your home&#39;s ambiance with our handcrafted candle set, featuring a soothing blend of scents and textures that will transport you to a state of serenity.</p>
+          <div class="card-footer">
+            <span style="font-size:0.75rem; color:#9ca3af;">Aug 27, 2026</span>
+            <span class="card-cta">View Lookbook &rarr;</span>
+          </div>
+        </div>
+      </a>
+      
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Curated UGC Lookbooks. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function filterLookbooks() {
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const text = card.getAttribute('data-title') || '';
+        if (text.includes(q)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
