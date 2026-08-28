@@ -1,5 +1,8 @@
 // Vercel Edge Function: Smart Affiliate Country Router
 // Runtime: Vercel Edge Network (<10ms global latency, $0 cost)
+// Automatically matches Amazon official SiteStripe format:
+//   US: https://www.amazon.com/dp/{asin}?tag=nizamuddinsam-20&linkCode=ll2&ref_=as_li_ss_tl&language=en_US&ascsubtag={subid}
+//   IN: https://www.amazon.in/dp/{asin}?tag=nizamuddins0a-21&linkCode=ll2&ref_=as_li_ss_tl&ascsubtag={subid}
 
 export const config = {
   runtime: 'edge',
@@ -27,29 +30,26 @@ export default function handler(request) {
 
   let destination = '';
 
-  // 4. Country Routing Engine
+  // 4. Country Routing Engine with Amazon SiteStripe compliance
   if (country === 'IN') {
-    // ── INDIA ROUTING (Method 1: Style Query Fallback) ──
+    // ── INDIA ROUTING (Method 1: Direct ASIN or Style Query Fallback) ──
     if (asin_in) {
-      // Priority 1: Direct Indian ASIN match
-      destination = `https://www.amazon.in/dp/${asin_in}?tag=${IN_TAG}&ascsubtag=${encodeURIComponent(subid)}&linkCode=ogi`;
+      destination = `https://www.amazon.in/dp/${asin_in}?tag=${IN_TAG}&linkCode=ll2&ref_=as_li_ss_tl&ascsubtag=${encodeURIComponent(subid)}`;
     } else if (q) {
-      // Priority 2: High-converting style search query (Method 1)
-      destination = `https://www.amazon.in/s?k=${encodeURIComponent(q)}&tag=${IN_TAG}&ascsubtag=${encodeURIComponent(subid)}`;
+      destination = `https://www.amazon.in/s?k=${encodeURIComponent(q)}&tag=${IN_TAG}&linkCode=ll2&ref_=as_li_ss_tl&ascsubtag=${encodeURIComponent(subid)}`;
     } else if (asin) {
-      // Priority 3: Fallback search by US ASIN / keyword
-      destination = `https://www.amazon.in/s?k=${encodeURIComponent(asin)}&tag=${IN_TAG}&ascsubtag=${encodeURIComponent(subid)}`;
+      destination = `https://www.amazon.in/s?k=${encodeURIComponent(asin)}&tag=${IN_TAG}&linkCode=ll2&ref_=as_li_ss_tl&ascsubtag=${encodeURIComponent(subid)}`;
     } else {
-      destination = `https://www.amazon.in/?tag=${IN_TAG}`;
+      destination = `https://www.amazon.in/?tag=${IN_TAG}&linkCode=ll2&ref_=as_li_ss_tl`;
     }
   } else {
     // ── US / CANADA / UK / GLOBAL ROUTING ──
     if (asin) {
-      destination = `https://www.amazon.com/dp/${asin}?tag=${US_TAG}&ascsubtag=${encodeURIComponent(subid)}&linkCode=ogi`;
+      destination = `https://www.amazon.com/dp/${asin}?tag=${US_TAG}&linkCode=ll2&ref_=as_li_ss_tl&language=en_US&ascsubtag=${encodeURIComponent(subid)}`;
     } else if (q) {
-      destination = `https://www.amazon.com/s?k=${encodeURIComponent(q)}&tag=${US_TAG}&ascsubtag=${encodeURIComponent(subid)}`;
+      destination = `https://www.amazon.com/s?k=${encodeURIComponent(q)}&tag=${US_TAG}&linkCode=ll2&ref_=as_li_ss_tl&language=en_US&ascsubtag=${encodeURIComponent(subid)}`;
     } else {
-      destination = `https://www.amazon.com/?tag=${US_TAG}`;
+      destination = `https://www.amazon.com/?tag=${US_TAG}&linkCode=ll2&ref_=as_li_ss_tl&language=en_US`;
     }
   }
 
