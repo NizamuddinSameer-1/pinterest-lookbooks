@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pinterest-lookbooks-beta.vercel.app/sitemap.xml
