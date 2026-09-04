@@ -2,11 +2,11 @@
   --bg: #FAFAF8;
   --card-bg: #FFFFFF;
   --ink: #141412;
-  --ink-soft: #5C5A55;
-  --ink-muted: #8C8880;
+  --ink-soft: #4F4C47;
+  --ink-muted: #66625B;
   --border: #E8E6DF;
   --border-dark: #D4D1C7;
-  --accent: #9C7A4A;
+  --accent: #78562B;
   --accent-light: #F4EFE6;
   --green-dark: #065F46;
   --green-bg: #ECFDF5;
@@ -97,8 +97,7 @@ main { min-width: 0; }
 .breadcrumbs {
   font-size: 12.5px;
   color: var(--ink-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   margin-bottom: 14px;
 }
 .breadcrumbs a { color: var(--ink); font-weight: 500; }
@@ -108,53 +107,54 @@ main { min-width: 0; }
   font-family: var(--font-display);
   font-size: 38px;
   line-height: 1.22;
-  font-weight: 700;
+  margin: 0 0 12px 0;
   color: var(--ink);
-  margin: 0 0 16px 0;
   letter-spacing: -0.01em;
 }
 .post-subtitle {
-  font-size: 19px;
-  line-height: 1.5;
+  font-size: 17px;
+  line-height: 1.55;
   color: var(--ink-soft);
-  font-weight: 300;
-  margin: 0 0 26px 0;
+  margin: 0 0 24px 0;
+  font-weight: 400;
 }
 
-/* Author & Reading Meta */
+/* ---------- Author Attribution Block ---------- */
 .author-meta {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 16px 0;
+  padding: 14px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 .author-avatar {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: #E8E5DD;
+  background: var(--ink);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--ink);
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
 }
 .author-details {
   display: flex;
   flex-direction: column;
 }
 .author-name {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14.5px;
   color: var(--ink);
 }
 .author-role {
   font-size: 12.5px;
   color: var(--ink-muted);
+  margin-top: 2px;
 }
 
 /* Mandatory Top FTC Disclosure Notice */
@@ -169,10 +169,10 @@ main { min-width: 0; }
   gap: 10px;
 }
 .ftc-badge {
-  font-size: 10.5px;
+  font-size: 11.5px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   background: #E2DDD2;
   color: #38352F;
   padding: 3px 8px;
@@ -188,52 +188,48 @@ main { min-width: 0; }
 
 /* ---------- Hero Image Frame ---------- */
 .hero-frame {
-  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
   border-radius: 10px;
   overflow: hidden;
-  background: #1C1B18;
-  margin-bottom: 30px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+  position: relative;
+  background: #ECEAE4;
+  margin-bottom: 32px;
 }
 .hero-frame img {
   width: 100%;
-  height: auto;
-  max-height: 680px;
+  height: 100%;
   object-fit: cover;
-  object-position: center top;
-  margin: 0 auto;
+  object-position: center 25%;
 }
 .hero-tag {
   position: absolute;
-  top: 16px;
+  bottom: 16px;
   left: 16px;
-  background: rgba(20, 19, 17, 0.88);
-  color: #FFFFFF;
+  background: rgba(26, 25, 24, 0.85);
   backdrop-filter: blur(8px);
+  color: #FFFFFF;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   padding: 6px 14px;
-  border-radius: 20px;
-  letter-spacing: 0.04em;
+  border-radius: 6px;
 }
 
-/* ---------- Executive Verdict Buy Box ---------- */
+/* ================= CONVERSION BUY BOX / VERDICT ================= */
 .verdict-box {
-  background: #FAF9F5;
-  border: 1px solid #E2DFD5;
+  background: #FAF9F6;
+  border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 24px 28px;
+  padding: 28px;
   margin-bottom: 36px;
 }
 .verdict-top-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 16px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--border);
 }
 .scenario-badge {
   display: inline-flex;
@@ -243,8 +239,7 @@ main { min-width: 0; }
   color: var(--ink);
   font-size: 12px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.03em;
   padding: 5px 12px;
   border-radius: 4px;
 }
@@ -263,7 +258,7 @@ main { min-width: 0; }
   gap: 6px;
   font-size: 13px;
   font-weight: 600;
-  color: #D97706;
+  color: #B45309;
 }
 .price-row {
   display: flex;
@@ -278,7 +273,7 @@ main { min-width: 0; }
   color: var(--ink);
 }
 .prime-badge {
-  background: #0284C7;
+  background: #0369A1;
   color: #FFFFFF;
   font-size: 11px;
   font-weight: 700;
@@ -298,14 +293,13 @@ main { min-width: 0; }
   width: 100%;
   background: var(--btn-bg);
   color: var(--btn-text);
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: 0.03em;
-  padding: 16px 28px;
+  font-weight: 700;
+  font-size: 15.5px;
+  padding: 16px 24px;
   border-radius: 8px;
-  transition: all 0.2s ease;
+  text-decoration: none;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  margin-bottom: 14px;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 .btn-cta-primary:hover {
   background: #2C2A26;
@@ -317,27 +311,24 @@ main { min-width: 0; }
   display: flex;
   justify-content: center;
   gap: 16px;
-  font-size: 11.5px;
+  font-size: 12px;
   color: var(--ink-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   margin-top: 10px;
 }
 
 /* Quick Comparison Matrix */
 .comparison-section {
-  margin: 32px 0;
-  background: #FFFFFF;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  margin: 40px 0;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
 }
+.comparison-section h2,
 .comparison-section h3 {
   font-family: var(--font-display);
-  font-size: 21px;
+  font-size: 22px;
   font-weight: 700;
-  margin: 0 0 16px 0;
+  margin-bottom: 20px;
   color: var(--ink);
 }
 .comparison-grid {
@@ -361,10 +352,9 @@ main { min-width: 0; }
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 .comp-badge {
-  font-size: 10.5px;
+  font-size: 11.5px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em;
   padding: 3px 8px;
   border-radius: 3px;
   display: inline-block;
@@ -388,7 +378,7 @@ main { min-width: 0; }
 .comp-score {
   font-size: 13px;
   font-weight: 600;
-  color: #D97706;
+  color: #B45309;
   margin-bottom: 8px;
 }
 .comp-details {
@@ -439,11 +429,9 @@ main { min-width: 0; }
 
 /* Performance & Practical Breakdown Cards */
 .testing-log-box {
-  background: #F7F6F2;
-  border: 1px solid #E2DFD5;
-  border-radius: 10px;
-  padding: 24px 28px;
-  margin: 36px 0;
+  margin: 40px 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
 }
 .testing-log-box h3 {
   margin-top: 0;
@@ -451,17 +439,23 @@ main { min-width: 0; }
   margin-bottom: 16px;
 }
 .log-item {
-  border-left: 3px solid var(--accent);
-  padding-left: 16px;
-  margin-bottom: 18px;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.log-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 .log-phase {
   font-size: 13.5px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
   color: var(--accent);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .log-desc {
   font-size: 14.5px;
@@ -472,26 +466,36 @@ main { min-width: 0; }
 
 /* Pullquote Verdict */
 blockquote.editorial-quote {
-  margin: 32px 0;
-  padding: 22px 28px;
-  background: #F6F4EE;
-  border-left: 4px solid var(--accent);
-  border-radius: 0 8px 8px 0;
+  margin: 36px 0;
+  padding: 28px 32px;
+  background: #FAF9F5;
+  border: 1px solid #EAE6DC;
+  border-radius: 12px;
   font-family: var(--font-display);
-  font-size: 19px;
+  font-size: 20px;
   font-style: italic;
   color: #1F1E1B;
-  line-height: 1.6;
+  line-height: 1.65;
+  position: relative;
+}
+blockquote.editorial-quote::before {
+  content: "“";
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 44px;
+  line-height: 20px;
+  color: var(--accent);
+  margin-bottom: 8px;
+  opacity: 0.85;
 }
 blockquote.editorial-quote cite {
   display: block;
   margin-top: 10px;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 13.5px;
   font-style: normal;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.02em;
   color: var(--accent);
 }
 
@@ -509,8 +513,7 @@ blockquote.editorial-quote cite {
   font-size: 12px;
   font-weight: 600;
   color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.03em;
   margin-bottom: 6px;
 }
 .look-title {
@@ -527,14 +530,16 @@ blockquote.editorial-quote cite {
   margin: 0;
 }
 
+.look-image-frame,
 .look-image-card {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
   background: #181715;
   margin: 22px 0 24px 0;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  padding: 0;
 }
+.look-image-frame img,
 .look-image-card img {
   width: 100%;
   height: auto;
@@ -606,11 +611,9 @@ blockquote.editorial-quote cite {
 
 /* ---------- Fabric & Materiality Deep Dive ---------- */
 .fabric-box {
-  background: #FAF8F4;
-  border: 1px solid #E4E0D5;
-  border-radius: 10px;
-  padding: 28px 30px;
   margin: 44px 0;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
 }
 .fabric-box h3 {
   margin-top: 0;
@@ -676,6 +679,7 @@ blockquote.editorial-quote cite {
   border-radius: 10px;
   padding: 22px 24px;
 }
+.pros-card h3,
 .pros-card h4 {
   color: var(--green-dark);
   font-size: 15.5px;
@@ -685,6 +689,7 @@ blockquote.editorial-quote cite {
   align-items: center;
   gap: 8px;
 }
+.cons-card h3,
 .cons-card h4 {
   color: var(--amber-dark);
   font-size: 15.5px;
@@ -721,7 +726,7 @@ blockquote.editorial-quote cite {
   left: 2px;
   font-weight: 700;
   font-size: 16px;
-  color: #D97706;
+  color: #B45309;
 }
 
 /* ---------- Buyer Persona Matching ---------- */
@@ -736,9 +741,17 @@ blockquote.editorial-quote cite {
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 22px 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.persona-card.buy-card { border-top: 3px solid #059669; }
-.persona-card.skip-card { border-top: 3px solid var(--ink-muted); }
+.persona-card.buy-card {
+  border-color: rgba(5, 150, 105, 0.38);
+  background: linear-gradient(180deg, rgba(240, 253, 244, 0.7) 0%, #FFFFFF 30%);
+}
+.persona-card.skip-card {
+  border-color: rgba(100, 116, 139, 0.32);
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.7) 0%, #FFFFFF 30%);
+}
+.persona-card h3,
 .persona-card h4 {
   font-size: 15px;
   font-weight: 700;
@@ -920,6 +933,9 @@ aside { display: block; }
   border-radius: 10px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+.sidebar-widget.sidebar-alt {
+  background: #FAF9F6;
 }
 .sidebar-widget h4 {
   font-family: var(--font-display);
